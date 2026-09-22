@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="MundoWumpusDia7-impl" default="default" basedir="..">
+    <property file="nbproject/project.properties"/>
+    <property name="classes.dir" location="${build.classes.dir}"/>
+    <property name="jar.file" location="${dist.jar}"/>
+
+    <target name="-init">
+        <mkdir dir="${classes.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+    </target>
+
+    <target name="compile" depends="-init">
+        <javac srcdir="${src.dir}" destdir="${classes.dir}"
+               source="${javac.source}" target="${javac.target}"
+               encoding="${source.encoding}" includeantruntime="false"/>
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar destfile="${jar.file}" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="compile">
+        <java classname="${main.class}" fork="true" failonerror="true">
+            <classpath path="${classes.dir}"/>
+        </java>
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+    <target name="default" depends="jar"/>
+</project>
