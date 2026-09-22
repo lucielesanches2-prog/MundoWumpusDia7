@@ -27,9 +27,6 @@ SEM OURO  -> explorar o mapa usando memória e estimativa de risco
 COM OURO  -> retornar pelo caminho já percorrido até a casa inicial
 ```
 
-O limite de 180 movimentos é aplicado somente à exploração. Se o ouro for
-encontrado, o retorno não é interrompido pelo limite.
-
 ## Fórmula didática
 
 ```text
